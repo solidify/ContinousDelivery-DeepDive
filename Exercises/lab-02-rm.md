@@ -36,12 +36,40 @@ Add pre-deployment approval in production
 7. Rename the new environment to *Production* and save the release definition
 
 ### Define configuration variables
-Create variables for test and production
+Now we need to define the configuration variables for this release definition. Configuration variables contain the settings that either differ between the different environment, or for values that should be reused across multiple environments. 
+
+For this release definition, we need the following variables:
+
+* Frontend web site name
+* Backend web site name
+* Backend URL
+* Connection string
+...
+
+1. Click the context menu for the Test environment(The ...) and select *Configure variables*
+2. Add the following variables and values
+- XXX YYY
+- XXXX YYYY
+3. Repeat for the *Production* environment, with the following variables:
+- XXX YYY
+- XXX YYY
+4. Save the release definition
+
 
 ### Add deployment tasks 
-Deploy 2 Azure web apps + 1 SQL database
+Now it's time to specify how the deployment steps for QuizBox. We will be using an ARM (Azure Resource Manager) template for creating the environment. In this case, the template will contain 2 web sites, one SQL server and a SQL database. Then we will use a couple of deployment tasks to deploy the web sites and the database.
+
+1. 
+Deploy 2 Azure web apps + 1 SQL database (ARM template)
+Deploy web
 
 ### Queue a release
+Let's try out our release definition.
+
+1. Queue a release by clicking on the *+Release* button and select *Create release*, then select OK.
+2. 
+
+
 Run deployment
 Verify test deployment
 Approve
@@ -50,5 +78,7 @@ Verify production deployment
 
 
 ## Further ideas
+* Releases can be deployed in parallell across multiple environments. Try changing the release definition so that the release is deployed to the Test and Production simultaneously
+* Releases can contain a Manual Intervention step, to allow for manual steps. Try adding this and see how this affect the release process
 
 
