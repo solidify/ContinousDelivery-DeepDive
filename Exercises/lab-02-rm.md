@@ -17,7 +17,7 @@ In Visual Studio Release Management, a deployment pipeline is implemented by cre
 1. Go to the Release hub
 2. Click the + button and select *Create release definition*
 3. Note that there are several different templates that can be used for certain scenarios. In this excercise, we will start from scratch so click on *Empty* at the bottom
-4. Click Next, then select the build definition that you created in the previous excercise.
+4. Click *Next*, then select the build definition that you created in the previous excercise.
 5. Check the *Continuous deployment...* checkbox to automatically deploy the application every time a release build finishes
 6. Select the agent queue that you created when installing the build agent
 7. Press *Create*. 
@@ -67,14 +67,10 @@ Deploy web
 Let's try out our release definition.
 
 1. Queue a release by clicking on the *+Release* button and select *Create release*, then select OK.
-2. 
-
-
-Run deployment
-Verify test deployment
-Approve
-Verify production deployment
-
+2. Select the *Logs* tab on the running release to see the progress and the log output
+3. After the release has been deployed to the *Test* environment, the release should stop and wait for your approval
+4. Verify that the application has been deployed to the Test environment and is working as expected
+5. Approve the release and verify that it is deployed to the production environment
 
 
 ## Further ideas
