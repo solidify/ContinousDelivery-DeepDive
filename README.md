@@ -10,7 +10,7 @@ This repository and its content has been created for the Continuous Delivery Dee
 
 You find the exercises of the training in the [Exercises](/Exercises/) folder.
 
-You will be asked to access your Team Project in: [https://cd-deepdive.visualstudio.com](https://cd-deepdive.visualstudio.com)
+You will be asked to access your Team Project in: [https://deep-dive.visualstudio.com](https://deep-dive.visualstudio.com)
 
 ## Training Content
 
@@ -32,7 +32,6 @@ Attendees should already have basic knowledge about Visual Studio, .NET, C#, HTM
  
 ### Prerequisites
 
-You will need your own laptop to do the hands-on labs. Ideally, you have the latest version of Visual Studio installed (detailed instructions about the necessary Visual Studio configuration will be provided) and you have access to your own Microsoft Azure subscription. If you do not have access to Visual Studio and/or a Microsoft Azure account, Microsoft will provide a limited number (first come, first served) of free Azure Passes that you can use to run a VM with Visual Studio in it. In that case you just need internet access and a remote desktop client on your laptop.
-For the labs about build- and test-automation, you need your own Visual Studio Team Services subscription (free edition available).
+You will need your own laptop to do the hands-on labs. Ideally, you have the latest version of Visual Studio installed.
 
 **Please don't forget to bring your own laptop!**
