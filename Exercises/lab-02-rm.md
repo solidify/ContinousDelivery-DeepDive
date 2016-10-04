@@ -133,6 +133,7 @@ Now it's time to specify how the deployment steps for QuizBox. We will be using 
 | **Password:**      | $(databasePassword)|
 | **Type:**      | SQL DACPAC File|
 | **DACPAC File:**      | $(System.DefaultWorkingDirectory)/QBox.Release/database/QuizBoxDB.dacpac|
+| **Specify Firwall Rules Using:**      | AutoDetect |
 
 9. Add an *AzureRM App Service Deployment* task (in the Deploy category
 
