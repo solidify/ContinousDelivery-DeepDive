@@ -202,6 +202,10 @@ This will copy all the settings, and then we can just change the production valu
 | **backendWebSiteName:**      | quizboxprodapi$(teamId) ||
 
 8. Save the release definition
+9. Note that you can get a good overview of the different environment variables by going to the *Variables* tab and then select *Environment variables* in the dropdown in the upper right corner:
+
+    ![](./images/lab2/createrelease8.png  "Logo Title Text 1")
+
 
 ## Trigger a release
 Let's try out our release definition.We do this by committig a change to the QuizBox repo.
