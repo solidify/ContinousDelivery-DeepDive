@@ -77,9 +77,9 @@ Configuration variables contain the settings that either differ between the diff
 | **apiUrl:**      | http://quizboxtestapi$(teamId).azurewebsites.net/api ||
 | **databaseLogin:**      | quizboxadmin ||
 | **databasePassword:**      | P2ssw0rd | Yes |
-| **resourceGroupName:**      | quizboxtest ||
+| **resourceGroupName:**      | quizboxtest$(teamId) ||
 | **resourceGroupLocation:**      | North Europe ||
-| **hostingPlanName:**      | quizboxtest ||
+| **hostingPlanName:**      | quizboxtest$(teamId) ||
 | **databaseName:**      | quizbox ||
 | **databaseServerName:**      | quizboxtest$(teamId) ||
 | **databaseServer:**      | $(databaseServerName).database.windows.net ||
@@ -192,9 +192,9 @@ This will copy all the settings, and then we can just change the production valu
 | **apiUrl:**      | http://quizboxprodapi$(teamId).azurewebsites.net/api ||
 | **databaseLogin:**      | quizboxadmin ||
 | **databasePassword:**      | P2ssw0rd | Yes |
-| **resourceGroupName:**      | quizboxprod ||
+| **resourceGroupName:**      | quizboxprod$(teamId) ||
 | **resourceGroupLocation:**      | North Europe ||
-| **hostingPlanName:**      | quizboxprod ||
+| **hostingPlanName:**      | quizboxprod$(teamId) ||
 | **databaseName:**      | quizbox ||
 | **databaseServerName:**      | quizboxprod$(teamId) ||
 | **databaseServer:**      | $(databaseServerName).database.windows.net ||
