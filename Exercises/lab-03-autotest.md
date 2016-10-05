@@ -34,9 +34,9 @@ PS Remoting uses Windows Remote Management (WinRM) protocol, and it needs to be 
     Enable-PSRemoting -SkipNetworkProfileCheck -Force
     ```
     
- ### Prerequisites
- The UI tests that are included in the sample application QuizBox uses Selenium WebDriver to run the tests on **Chrome** and **Internet Explorer**.
- To have the tests run successfully, you need to have both these browsers installed. If this is not possible, you need to comment out the corresponding tests.
+### Prerequisites
+The UI tests that are included in the sample application QuizBox uses Selenium WebDriver to run the tests on **Chrome** and **Internet Explorer**.
+To have the tests run successfully, you need to have both these browsers installed. If this is not possible, you need to comment out the corresponding tests.
   
     
  
