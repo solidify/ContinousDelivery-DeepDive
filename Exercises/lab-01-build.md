@@ -39,19 +39,23 @@ since it may have change since this text was written...
 3. Open a PowerShell command prompt as administrator.
 4. Run the following commands to extract the agent:
 
-    `mkdir c:\vsts-agent`
-
-    `cd c:\vsts-agent`
-
-    `Add-Type -AssemblyName System.IO.Compression.FileSystem ; [System.IO.Compression.ZipFile]::ExtractToDirectory("$HOME\Downloads\vsts-agent-win7-x64-2.107.0.zip", "$PWD")`
+    ```
+    mkdir c:\vsts-agent
+    cd c:\vsts-agent
+    Add-Type -AssemblyName System.IO.Compression.FileSystem ; [System.IO.Compression.ZipFile]::ExtractToDirectory("$HOME\Downloads\vsts-agent-win7-x64-2.107.0.zip", "$PWD")
+    ```
 
 5. Configure the agent
 
-    `.\config.cmd`
+    ```
+    .\config.cmd
+    ```
 
 6. Run the agent interatively
 
-    `.\run.cmd`
+    ```
+    .\run.cmd
+    ```
 
 7. Now the agent should be up and running. Switch back to the VSTS team settings and look at
 the status in the agent queue.
@@ -117,7 +121,7 @@ msbuild arguments: /p:DeployOnBuild=true /p:PublishProfile=CreatePackage
 from the build.
 
 | Artifact Name | Copy Root | Contents | Artifact source |
-|--|--|--|--|
+|---|---|---|---|
 | Frontend | $(build.sourcesDirectory) | source\QBox.Web\deploy\\\*.* | server |
 | Backend | $(build.sourcesDirectory) | source\QBox.Api\deploy\\\*.* | server |
 | Scripts | Scripts | \*\*\\\*.\* | Server |
