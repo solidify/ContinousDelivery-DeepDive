@@ -73,7 +73,7 @@ Configuration variables contain the settings that either differ between the diff
 3. Save the release definition
 
 | Variable        | Value           | Secret |
-| ------------- |-------------||
+| ------------- |-------------|-------------|
 | **apiUrl:**      | http://quizboxtestapi$(teamId).azurewebsites.net/api ||
 | **databaseLogin:**      | quizboxadmin ||
 | **databasePassword:**      | P2ssw0rd | Yes |
@@ -188,7 +188,7 @@ This will copy all the settings, and then we can just change the production valu
 7. Set the following variables: 
 
 | Variable        | Value           | Secured |
-| ------------- |-------------||
+| ------------- |-------------|-------------|
 | **apiUrl:**      | http://quizboxprodapi$(teamId).azurewebsites.net/api ||
 | **databaseLogin:**      | quizboxadmin ||
 | **databasePassword:**      | P2ssw0rd | Yes |

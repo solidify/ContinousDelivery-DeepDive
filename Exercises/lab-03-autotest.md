@@ -1,4 +1,4 @@
-# Exercise 3 - Autotest
+# Exercise 3 - Running Functional Tests
 
 ## Learnings
 1. How to run functional UI tests during a release pipeline
@@ -63,7 +63,7 @@ We will go with the later solutoin, since this also let's us rerun the test easi
    Since we want to handle passwords securely, we create two variables for containing the values:
 
 | Variable        | Value           | Secured |
-| ------------- |-------------||
+| ------------- |-------------|-------------|
 | **adminLogin:**      | *accountWithAdminPriviledges* ||
 | **adminPassword:**      | *password* | Yes|  
    
@@ -101,17 +101,28 @@ We will go with the later solutoin, since this also let's us rerun the test easi
     
 10. Save the release definition
 
-## Running Functional Tests
+## Running och Tracking Test 
 
 1. To run the test, queue a new release
 
-    **Note:** The first time the deploy test agent tasks is executed, it will install the test agent on your machine.
-    This will take some extra time, and in some cases it will cause the machine to reboot. Since we are running the relesae agent on the same machine, the build will obviosuly fail.
-    If this happens, requeue the release after the machine has rebooted  
+```
+The first time the deploy test agent tasks is executed, it will install the test agent on your machine.
+This will take some extra time, and in some cases it will cause the machine to reboot. 
+Since we are running the relesae agent on the same machine, the build will obviosuly fail.
+If this happens, requeue the release after the machine has rebooted  
+```
+2. When the tests start running, you should see a console window (*DTAExecutionHost*) pop up and after a while the tests starts to exeecute.
 
-2. When the tests start running, you should see a console window (*DTAExecutionHost*) pop up and after a while the tests will start running
+3. When the test complete, the release finish and you can view the test results 
+
+4. One of the tests should be failing, track down the error by following the 
+
+5. Go back to Visual Studio and locate the failing test. Fix the error and commit and push the changes
+
+6. Verify that the next release runs and all tests complete successfully.
 
 
 
 ## Further ideas
 
+1. 

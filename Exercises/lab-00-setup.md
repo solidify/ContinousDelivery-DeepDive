@@ -1,14 +1,26 @@
 # Exercise 0 - Setup
 
-## Learnings
-1. list of Learnings
-2. and other things from exercise
+In this lab you will setup your environment to prepare for the rest of the excercises.
+A team project has already been created for you, 
 
-## Setup / prerequisites
-1. Create team project
-2. Import repo from GitHub
-3. Create Azure Service Endpoint (or maybe part of build lab...)
-https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/
+## Preparations
+
+1. Connect to the team project that has been assigned to you/your team
+
+TODO: IMAGE
+
+2. Go to the *Code* hub group
+
+3. From the repository selector drop-down, click *Import repository*
+
+4. In the *Clone URL* field, enter the following URL:
+
+```
+TODO: URL
+
+``` 
+
+5. Click *Import* to import the QuizBox repository into a new Git repo in your team project
 
 
 ## Further ideas
