@@ -3,7 +3,7 @@
 ## Learnings
 1. How to run functional UI tests during a release pipeline
 
-2. How to do test analysis
+2. Doing test run analysis, tracking down failed tests
 
 ## Setup / prerequisites
 In this lab, your local machine will be used as a test agent in interactive mode to run functional, browser based UI tests.
@@ -51,11 +51,11 @@ We will go with the later solutoin, since this also let's us rerun the test easi
  
 2. Change the Deployment conditions so that the *SmokeTest* environment is triggered after the *Test* environment has completed succesfully
 
-    ![](./images/lab2/runtests1.png  "Logo Title Text 1")
+    ![](./images/lab3/runtests1.png  "Logo Title Text 1")
  
 3. Change the Deployment condition of the *Production* environment so that is is triggered after the *SmokeTest* environment
 
-    ![](./images/lab2/runtests2.png  "Logo Title Text 1")
+    ![](./images/lab3/runtests2.png  "Logo Title Text 1")
    
 4. Select the *SmokeTest* environment, and browse to the *Variables* tab
 
@@ -67,11 +67,11 @@ We will go with the later solutoin, since this also let's us rerun the test easi
 | **adminLogin:**      | *accountWithAdminPriviledges* ||
 | **adminPassword:**      | *password* | Yes|  
    
-     ![](./images/lab2/runtests4.png  "Logo Title Text 1")
+     ![](./images/lab3/runtests4.png  "Logo Title Text 1")
 
 6. Add an instance of the *Visual Studio Test Agent Deployment* task
 
-    ![](./images/lab2/runtests3.png  "Logo Title Text 1")
+    ![](./images/lab3/runtests3.png  "Logo Title Text 1")
     
 7.   Set the following variables
 
@@ -97,7 +97,7 @@ We will go with the later solutoin, since this also let's us rerun the test easi
 | **Run Settings File:**      | QBox.Release\uitests\default.runsettings |
 | **Override Test Run Parameters:**      | webAppUrl=https://quizboxtest$(teamId).azurewebsites.net |
 
-    ![](./images/lab2/runtests5.png  "Logo Title Text 1")
+    ![](./images/lab3/runtests5.png  "Logo Title Text 1")
     
 10. Save the release definition
 
@@ -113,13 +113,27 @@ If this happens, requeue the release after the machine has rebooted
 ```
 2. When the tests start running, you should see a console window (*DTAExecutionHost*) pop up and after a while the tests starts to exeecute.
 
+  **Note:** Don't use the mouse or keyboard during the test run, as this can cause the tests to fail
+
 3. When the test complete, the release finish and you can view the test results 
 
-4. One of the tests should be failing, track down the error by following the 
+4. You should see that the *SmokeTest* step failed, the reason for this is that one of the tests is failing 
 
-5. Go back to Visual Studio and locate the failing test. Fix the error and commit and push the changes
+5. Go to the *Tests* tab to analyze the test results. You will see an overall summary of the test results, and in the list the test that is failing should be listed:
+    
+    ![](./images/lab3/runtests6.png  "Logo Title Text 1")
 
-6. Verify that the next release runs and all tests complete successfully.
+6. Note that you get detailed information about the failing tests, as well as the history for this particular test. You can also change the *Outcome* filter to view the other tests as well 
+
+7. Select the failed test and click on the *Create bug* button in the toolbar above. The bug will contain the detailed information about the failed test(s) and links to the corresponding build.
+
+    ![](./images/lab3/runtests7.png  "Logo Title Text 1") 
+
+8. Go back to Visual Studio,  locate the failing test and fix the error(that should be rather easy :-) ) 
+
+9. Commit the fix and associate to the bug work item that you just created
+
+8. Push the changes and wait for the build and release to complete, it should now complete without any error
 
 
 
