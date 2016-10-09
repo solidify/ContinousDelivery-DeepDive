@@ -23,6 +23,7 @@ agent on your own machine to simulate an internal build server running against V
 ### Create a build pool
 1. Go to the VSTS team settings and select the Agent Queue hub.
 2. Click the "New queue..." button and create a queue and also a new pool.
+
 ![Create queue](images/lab1/create-queue.png)
 
 ### Create a Personal Access Token for the build service
@@ -51,7 +52,7 @@ since it may have change since this text was written...
     .\config.cmd
     ```
 
-6. Run the agent interatively
+6. Run the agent interactively
 
     ```
     .\run.cmd
