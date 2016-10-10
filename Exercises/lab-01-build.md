@@ -22,16 +22,30 @@ agent on your own machine to simulate an internal build server running against V
 
 ### Create a build pool
 1. Go to the VSTS team settings and select the Agent Queue hub.
-2. Click the "New queue..." button and create a queue and also a new pool.
+2. Click the "New queue..." button and create a queue and also a new pool, name it
+by your assigned user id (i.e. UserNN).
 
 ![Create queue](images/lab1/create-queue.png)
 
-### Create a Personal Access Token for the build service
-1. Create a personal access token (PAT) to be used for the VSTS agent to access 
-build resources in VSTS.
-[Create VSTS PAT](https://www.visualstudio.com/en-us/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate)
+### Create a Personal Access Token for the build agent
+In order to setup the build agent we need a way to configure how it can access
+resources in VSTS. The way we do this is by using a personal access token (PAT).
 
-zgh66vsbuxwqfh6h4rr5y6tbrbsrv2yae3jctuo7kobqx3bdz3qq
+1. Login to the VSTS account and click on the profile link and select Security.
+
+![Profile security](images/lab1/profile-security.png)
+
+2. Add a new Personal access token, name it **DeepDive** and authorize it to the 
+**Agent Pools (read, manage)** scope.
+
+![Create pat](images/lab1/create-pat.png)
+
+3. Copy the PAT token and save it in a temporary notepad file, we will use it in 
+the next step when we configure the agent.
+
+More information about personal access tokens:
+
+[Create VSTS PAT](https://www.visualstudio.com/en-us/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate)
 
 ### Install a local build agent
 1. Go to the VSTS team settings and select the Agent Queue hub.
@@ -46,7 +60,8 @@ since it may have change since this text was written...
     Add-Type -AssemblyName System.IO.Compression.FileSystem ; [System.IO.Compression.ZipFile]::ExtractToDirectory("$HOME\Downloads\vsts-agent-win7-x64-2.107.0.zip", "$PWD")
     ```
 
-5. Configure the agent
+5. Configure the agent. Provide the **agent queue** created earlier, the account name **https://deep-dive.visualstudio.com** and 
+use the **PAT** from the previous step.
 
     ```
     .\config.cmd
@@ -67,9 +82,9 @@ you will create both a continuous integration build and then also a variant to b
 release builds.
 
 ### CI build
-1. Go to the Build hub 
-2. Click on the "+ New" button.
-3. There are several templates to choose from, select the Visual Studio template.
+1. Go to the **Build** hub 
+2. Click on the **"+ New"** button.
+3. There are several templates to choose from, select the **Visual Studio** template.
 
 ![](./images/lab1/create-build-definition.png)
 
