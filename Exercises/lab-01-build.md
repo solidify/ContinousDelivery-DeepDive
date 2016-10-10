@@ -1,6 +1,6 @@
 # Exercise 1 - Build and Package
 
-Expected time for this exercise: 60 minutes.
+Expected time for this exercise: 45 minutes.
 
 ## Learnings
 In this exercise you will learn to:
