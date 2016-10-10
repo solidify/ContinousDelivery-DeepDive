@@ -3,6 +3,8 @@
 In this lab you will setup your environment to prepare for the rest of the excercises.
 A team project has already been created for you.
 
+Expected time for this exercise: 15 minutes.
+
 ## Preparations
 
 1. Open a web browser and browse to https://deepdive.visualstudio.com/
