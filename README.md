@@ -20,7 +20,7 @@ Continuous Delivery with Visual Studio, Microsoft Azure & Open Source tools
 
 Software engineering practices have changed drastically in the last few years. Agile practices, DevOps, Cloud Computing, Open Source and similar developments have proven their effectiveness. Microsoft’s platforms for software development and cloud computing have also embraced these concepts and are at the leading edge in their domain.
 
-In this **one-day training** you will learn how setup a continuous develivery process with Microsoft’s tools and languages. Based on a consistent sample, you will learn how to
+In this **one-day training** you will learn how setup a continuous develivery process with Microsoft’s tools and languages. Based on a consistent sample we will cover the following topics: 
 
 * What does Continuous Delivery mean?
 * Coding for faster delivery
