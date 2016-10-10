@@ -22,7 +22,13 @@ Software engineering practices have changed drastically in the last few years. A
 
 In this **one-day training** you will learn how setup a continuous develivery process with Microsoft’s tools and languages. Based on a consistent sample, you will learn how to
 
-* TODO
+* What does Continuous Delivery mean?
+* Coding for faster delivery
+* Build and packaging
+* Managing environments
+* Release Management
+* Integrating autotests with build and release management
+* Application monitoring
 
 ### Training Structure
 
