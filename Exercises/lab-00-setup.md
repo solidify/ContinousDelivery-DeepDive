@@ -44,6 +44,8 @@ https://github.com/solidifysv/QBox.git
 
 9. Click on the *Team Settings* wheel at the top right
 
+    ![](./images/lab0/setup8.png)
+
 10. Select the *Version Control* tab and select the QBox repository
 
 11. Select the *master* branch and then click on the *Branch policies* section

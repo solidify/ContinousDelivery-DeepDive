@@ -18,11 +18,10 @@ PS Remoting uses Windows Remote Management (WinRM) protocol, and it needs to be 
 2. Run
 
     ```
-    winrm quickconfig
     Enable-PSRemoting
     ```
 
-3. If the first command gives you the following error
+3. If the command gives you the following error
 
    ```
     Message = WinRM firewall exception will not work since one of the network connection types on this machine is set to Public. Change the network connection type to either Domain or Private and try again.
@@ -34,6 +33,14 @@ PS Remoting uses Windows Remote Management (WinRM) protocol, and it needs to be 
     Enable-PSRemoting -SkipNetworkProfileCheck -Force
     ```
     
+ 4. Verify that you can connect to your location machine using Remote PowerShell
+ 
+    ```
+    enter-pssession -ComputerName 127.0.0.1
+    
+    [127.0.0.1]: PS C:\Users\jakobe\Documents>
+    ```
+ 
 ### Prerequisites
 The UI tests that are included in the sample application QuizBox uses Selenium WebDriver to run the tests on **Chrome** and **Internet Explorer**.
 To have the tests run successfully, you need to have both these browsers installed. If this is not possible, you need to comment out the corresponding tests.
@@ -139,4 +146,8 @@ If this happens, requeue the release after the machine has rebooted
 
 ## Further ideas
 
-1. 
+1. **Machine Groups**  
+   Instead of hardcoding the server information in the tasks like we did above, create a *Machine Group* that encapsulates this information. You find this under the *Test* tab. Create a machine group called QuizBoxTEST and add your local machine to it together with the credentials. In the deployment steps, replace the 127.0.0.1 with the name of the machine group, and remove the credentials (since these are configured in the machine group).  
+   Note that you need to specify port *5985* for the machine in the machine group, since this is the port used for HTTP access
+   
+2. 

@@ -1,8 +1,5 @@
 # Exercise 2 - Release Management
 
-**TODO**: 
-* Add images
-* Add further ideas
 
 ## Learnings
 1. Creating a release pipeline for deploying your application to multiple environments
@@ -11,17 +8,18 @@
 
 3. How to queue and track a release
 
+
 ## Setup / prerequisites
 Before starting on this excercise, you need to complete the previous excercise in which you created a release build definition. 
 This build definition produces versioned artefacts that we will use in this excercise.
+
 
 ## Azure Service Endpoint
 All build and deployment tasks that communicate with an Azure subscription does so using an Service Endpoint. 
 A service endpoint wraps all the information necessary in order to communicate with an external system (such as Azure, Jenkins or GitHub) so that 
 this does not have to be done for each release definition. Also, it makes it possible to keep sensitive information such as passwords stored in one place.
 
-In this lab, you will use an *Azure Resource Manager Service Endpoint* which has already been configured for you.
-The name of the service endpoint is *Azure Service Endpoint* 
+In this lab, you will use the service endpoint that you created in the first lab, called *Azure Service Endpoint*
  
 
 ## Creating a Release Definition
@@ -34,7 +32,7 @@ The definition contains information about the different environments, how the ap
 
 3. Note that there are several different templates that can be used for certain scenarios. In this excercise, we will start from scratch so click on *Empty* at the bottom
 
-    ![](./images/lab2/createrelease.png  "Logo Title Text 1")
+    ![](./images/lab2/createrelease.png)
 
 4. Click *Next*, then select the build definition that you created in the previous excercise.
 
@@ -42,7 +40,7 @@ The definition contains information about the different environments, how the ap
 
 6. Select the agent queue that you created when installing the build agent
 
-    ![](./images/lab2/createrelease2.png  "Logo Title Text 1")
+    ![](./images/lab2/createrelease2.png)
 
 7. Press *Create*. 
 
@@ -52,7 +50,7 @@ The definition contains information about the different environments, how the ap
 
 9. Press *Save* and name the release definition *QuizBox*
 
-    ![](./images/lab2/createrelease3.png  "Logo Title Text 1")
+    ![](./images/lab2/createrelease3.png)
 
 ## Configure the test environment
 Now we need to define the configuration variables for this release definition. 
@@ -62,11 +60,11 @@ Configuration variables contain the settings that either differ between the diff
 
 2. Go to the Variables tab and add a new variable called *TeamId* and give it the value (two digits) that you have been assigned:
 
-    ![](./images/lab2/createrelease6.png  "Logo Title Text 1")
+    ![](./images/lab2/createrelease6.png)
  
 3. Click the context menu for the Test environment(The ...) and select *Configure variables*
 
-![](./images/lab2/createrelease4.png  "Logo Title Text 1")
+![](./images/lab2/createrelease4.png)
 
 2. Add all the variables listed below (**Note the Secret variable**)
 
@@ -161,10 +159,9 @@ Now it's time to specify how the deployment steps for QuizBox. We will be using 
 
 13. Your release definition should now look like this:
 
-    ![](./images/lab2/createrelease5.png  "Logo Title Text 1")
+    ![](./images/lab2/createrelease5.png)
 
 14. Save the release definition
-
 
 
 ## Create Production environment
@@ -204,7 +201,7 @@ This will copy all the settings, and then we can just change the production valu
 8. Save the release definition
 9. Note that you can get a good overview of the different environment variables by going to the *Variables* tab and then select *Environment variables* in the dropdown in the upper right corner:
 
-    ![](./images/lab2/createrelease8.png  "Logo Title Text 1")
+    ![](./images/lab2/createrelease8.png)
 
 
 ## Trigger a release
@@ -223,21 +220,27 @@ Let's try out our release definition.We do this by committig a change to the Qui
 6. After the release has been deployed to the *Test* environment, the release should stop and wait for your approval
 
 7. Verify that the application has been deployed to the Test environment and is working as expected.  
-   You can do this by browsing to *https://quizboxtest0$(teamId).azurewebsites.net/*
+   You can do this by browsing to *https://quizboxtest$(teamId).azurewebsites.net/*
    
 8. Approve the release by clickin the Approve link at the top of the summary page
 
-    ![](./images/lab2/createrelease7.png  "Logo Title Text 1")
+    ![](./images/lab2/createrelease7.png)
 
 9. Verify that the release is deployed to the production environment as expected
 
 ## Further ideas
-* To avoid repeating the same set of steps in every environment, it is possible to create *Task Groups*.
-  A Task Group is a set of tasks that can have it's own set of input and output, and can be reused across multiple release definitions
-  
-* Releases can be deployed in parallell across multiple environments. Try changing the release definition so that the release is deployed to the Test and Production simultaneously
+* **Diagnostic information**  
+  As with builds, we can get more diagnostic information from releases by turning on debug. This is done by adding a new release variable called *system.debug* with the value *true*
 
-* Releases can contain a Manual Intervention step, to allow for manual steps. Try adding this and see how this affect the release process
+* **Group common deployment steps**  
+  To avoid repeating the same set of steps in every environment, it is possible to create *Task Groups*.
+  A Task Group is a set of tasks that can have it's own set of input and output, and can be reused across multiple release definitions. Try to wrap the existing tasks into a task group and reuse it on both the Test and Production environment.
+  
+* **Paralellize deployment**  
+  Releases can be deployed in parallell across multiple environments. Try changing the release definition so that the release is deployed to the Test and Production simultaneously
+
+* **Manual Interventions**  
+  Releases can contain a Manual Intervention step, to allow for manual steps. Try adding this and see how this affect the release process
   Tip: The Manual Intervention task is executed in a so called *Server phase*, click in the icon next to the *Add tasks* button to select this
 
 
