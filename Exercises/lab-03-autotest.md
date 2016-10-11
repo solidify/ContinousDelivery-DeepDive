@@ -33,7 +33,7 @@ PS Remoting uses Windows Remote Management (WinRM) protocol, and it needs to be 
     Enable-PSRemoting -SkipNetworkProfileCheck -Force
     ```
     
- 4. Verify that you can connect to your location machine using Remote PowerShell
+4. Verify that you can connect to your local machine using Remote PowerShell
  
     ```
     enter-pssession -ComputerName 127.0.0.1
