@@ -11,7 +11,7 @@ Expected time for this exercise: 15 minutes.
 
 ## Preparations
 
-1. Open a web browser and browse to https://deepdive.visualstudio.com/
+1. Open a web browser and browse to https://deep-dive.visualstudio.com/
 
 2. Login using your assigned user login and password
  

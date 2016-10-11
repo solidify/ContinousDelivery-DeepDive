@@ -72,10 +72,12 @@ We will go with the later solutoin, since this also let's us rerun the test easi
 | Variable        | Value           | Secured |
 | ------------- |-------------|-------------|
 | **adminLogin:**      | *accountWithAdminPriviledges* ||
-| **adminPassword:**      | *password* | Yes|  
-   
-     ![](./images/lab3/runtests4.png  "Logo Title Text 1")
+| **adminPassword:**      | *password* | Yes|
 
+
+![](./images/lab3/runtests4.png  "Logo Title Text 1")
+
+     
 6. Add an instance of the *Visual Studio Test Agent Deployment* task
 
     ![](./images/lab3/runtests3.png  "Logo Title Text 1")
@@ -93,18 +95,40 @@ We will go with the later solutoin, since this also let's us rerun the test easi
 | **Interactive Process:**      | Checked |
 | **Update Test Agent:**      | NOT Checked |
 
+8. Now we need to copy our test assemblies.  
+   **NB:** This step is not strictly needed since we are running on the same machine, 
+   but in a more realistic scenario you would need to move the test assemblies and related artifacts to the servers from where the tests are executed.
+   
+9. Add an instance of the *Windows Machine File Copy* task
+ 
+9. Create a folder on your local machine that can be used as the destination for the test assemblies.  
+   
+   For example *c:\temp\deepdive-uitests\*
+     
+9. Set the following variables
+
+| Variable        | Value           |
+| ------------- |-------------|
+| **Source:**      | $(Agent.ReleaseDirectory)\QBox.Release\uitests\ |
+| **Machines:**      | 127.0.0.1 |
+| **Destination Folder:**      | c:\temp\deepdive-uitests\ |
+
+
 8. Add an instance of the *Run Functional Tests* task
 
 9. Set the following variables
 
 | Variable        | Value           |
 | ------------- |-------------|
+| **Machines:**      | 127.0.0.1 |
+| **Test Drop Location:**      | c:\temp\deepdive-uitests\ |
 | **Test Selection:**      | Test Assembly |
 | **Test Assembly:**      | **\*test*.dll |
 | **Run Settings File:**      | QBox.Release\uitests\default.runsettings |
 | **Override Test Run Parameters:**      | webAppUrl=https://quizboxtest$(teamId).azurewebsites.net |
 
-    ![](./images/lab3/runtests5.png  "Logo Title Text 1")
+
+![](./images/lab3/runtests5.png  "Logo Title Text 1")
     
 10. Save the release definition
 
@@ -118,7 +142,7 @@ This will take some extra time, and in some cases it will cause the machine to r
 Since we are running the relesae agent on the same machine, the build will obviosuly fail.
 If this happens, requeue the release after the machine has rebooted  
 ```
-2. When the tests start running, you should see a console window (*DTAExecutionHost*) pop up and after a while the tests starts to exeecute.
+2. When the tests agent is initialized, you should see a console window (*DTAExecutionHost*) pop up and after a while the tests starts to exeecute.
 
   **Note:** Don't use the mouse or keyboard during the test run, as this can cause the tests to fail
 
