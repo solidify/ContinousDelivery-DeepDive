@@ -71,8 +71,8 @@ We will go with the later solutoin, since this also let's us rerun the test easi
 
 | Variable        | Value           | Secured |
 | ------------- |-------------|-------------|
-| **adminLogin:**      | *accountWithAdminPriviledges* ||
-| **adminPassword:**      | *password* | Yes|
+| **adminLogin**      | *accountWithAdminPriviledges* ||
+| **adminPassword**      | *password* | Yes|
 
 
 ![](./images/lab3/runtests4.png  "Logo Title Text 1")
@@ -86,14 +86,14 @@ We will go with the later solutoin, since this also let's us rerun the test easi
 
 | Variable        | Value           |
 | ------------- |-------------|
-| **Machines:**      | 127.0.0.1 |
-| **Admin Login:**      | $(adminLogin) |
-| **Admin Password:**      | $(adminPassword) |
-| **Protocol:**      | HTTP |
-| **User Name:**      | $(adminLogin) |
-| **Password:**      | $(adminPassword) |
-| **Interactive Process:**      | Checked |
-| **Update Test Agent:**      | NOT Checked |
+| **Machines**      | 127.0.0.1 |
+| **Admin Login**      | $(adminLogin) |
+| **Admin Password**      | $(adminPassword) |
+| **Protocol**      | HTTP |
+| **User Name**      | $(adminLogin) |
+| **Password**      | $(adminPassword) |
+| **Interactive Process**      | Checked |
+| **Update Test Agent**      | NOT Checked |
 
 8. Now we need to copy our test assemblies.  
    **NB:** This step is not strictly needed since we are running on the same machine, 
@@ -103,15 +103,15 @@ We will go with the later solutoin, since this also let's us rerun the test easi
  
 9. Create a folder on your local machine that can be used as the destination for the test assemblies.  
    
-   For example *c:\temp\deepdive-uitests\*
+   For example **c:\\temp\\deepdive-uitests**
      
 9. Set the following variables
 
 | Variable        | Value           |
 | ------------- |-------------|
-| **Source:**      | $(Agent.ReleaseDirectory)\QBox.Release\uitests\ |
-| **Machines:**      | 127.0.0.1 |
-| **Destination Folder:**      | c:\temp\deepdive-uitests\ |
+| **Source**      | $(Agent.ReleaseDirectory)\QBox.Release\uitests\ |
+| **Machines**      | 127.0.0.1 |
+| **Destination Folder**      | c:\temp\deepdive-uitests\ |
 
 
 8. Add an instance of the *Run Functional Tests* task
@@ -120,13 +120,12 @@ We will go with the later solutoin, since this also let's us rerun the test easi
 
 | Variable        | Value           |
 | ------------- |-------------|
-| **Machines:**      | 127.0.0.1 |
-| **Test Drop Location:**      | c:\temp\deepdive-uitests\ |
-| **Test Selection:**      | Test Assembly |
-| **Test Assembly:**      | **\*test*.dll |
-| **Run Settings File:**      | QBox.Release\uitests\default.runsettings |
-| **Override Test Run Parameters:**      | webAppUrl=https://quizboxtest$(teamId).azurewebsites.net |
-
+| **Machines**      | 127.0.0.1 |
+| **Test Drop Location**      | c:\temp\deepdive-uitests\ |
+| **Test Selection**      | Test Assembly |
+| **Test Assembly**      | **\*test*.dll |
+| **Run Settings File**      | QBox.Release\uitests\default.runsettings |
+| **Override Test Run Parameters**      | webAppUrl=https://quizboxtest$(teamId).azurewebsites.net |
 
 ![](./images/lab3/runtests5.png  "Logo Title Text 1")
     
@@ -166,12 +165,9 @@ If this happens, requeue the release after the machine has rebooted
 
 8. Push the changes and wait for the build and release to complete, it should now complete without any error
 
-
-
 ## Further ideas
 
 1. **Machine Groups**  
    Instead of hardcoding the server information in the tasks like we did above, create a *Machine Group* that encapsulates this information. You find this under the *Test* tab. Create a machine group called QuizBoxTEST and add your local machine to it together with the credentials. In the deployment steps, replace the 127.0.0.1 with the name of the machine group, and remove the credentials (since these are configured in the machine group).  
    Note that you need to specify port *5985* for the machine in the machine group, since this is the port used for HTTP access
    
-2. 
