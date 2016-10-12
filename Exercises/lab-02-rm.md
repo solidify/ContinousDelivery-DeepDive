@@ -145,7 +145,7 @@ Now it's time to specify how the deployment steps for QuizBox. We will be using 
 | **Publish using Web Deploy:**      | Checked |
 | **SetParameters File:**      | $(System.DefaultWorkingDirectory)/QBox.Release/frontend/QBox.Web.SetParameters.xml |
 
-11. Add another *AzureRM App Service Deployment* task (in the Deploy category
+11. Add another *AzureRM App Service Deployment* task (in the Deploy category)
 
 12. Set the following variables
 
