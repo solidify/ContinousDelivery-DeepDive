@@ -236,11 +236,12 @@ Let's try out our release definition.We do this by committig a change to the Qui
   To avoid repeating the same set of steps in every environment, it is possible to create *Task Groups*.
   A Task Group is a set of tasks that can have it's own set of input and output, and can be reused across multiple release definitions. Try to wrap the existing tasks into a task group and reuse it on both the Test and Production environment.
   
-* **Paralellize deployment**  
-  Releases can be deployed in parallell across multiple environments. Try changing the release definition so that the release is deployed to the Test and Production simultaneously
+* **Parallellize deployment**  
+  Releases can be deployed in parallell across multiple environments. 
+  Try adding some new environments (they can be empty) and configure the *Deployment conditions* so that they are executed in parallel
 
 * **Manual Interventions**  
-  Releases can contain a Manual Intervention step, to allow for manual steps. Try adding this and see how this affect the release process
-  Tip: The Manual Intervention task is executed in a so called *Server phase*, click in the icon next to the *Add tasks* button to select this
+  Releases can contain a *Manual Intervention step*, to allow for manual steps. Try adding this and see how this affect the release process
+  Tip: The Manual Intervention task is executed in a so called *Server phase*, click in the icon next to the *Add tasks* button to create a server phase and add the manual intervention task there.
 
 
