@@ -171,5 +171,5 @@ If this happens, requeue the release after the machine has rebooted
    Instead of hardcoding the server information in the tasks like we did above, create a *Machine Group* that encapsulates this information. You find this under the *Test* tab. Create a machine group called QuizBoxTEST and add your local machine to it together with the credentials. In the deployment steps, replace the 127.0.0.1 with the name of the machine group, and remove the credentials (since these are configured in the machine group).  
    Note that you need to specify port *5985* for the machine in the machine group, since this is the port used for HTTP access
    
-2. **Web Performance Test*
+2. **Web Performance Test**  
    Add a *Cloud Web Performance Test* task that will hit your site for 60 seconds. Look at the results in the *Test -> Load test* page
