@@ -20,16 +20,26 @@ In this exercise you will add an Application Insights resource to the resource g
 created earlier. 
 
 1. Go to the Azure portal and select the **QuizBoxTest\<userid\>** resource group.
+
+![](images/lab4/select-rg.png)
+
 2. Add a new Application Insights resource to the resource group. Name the resource **QBoxInsights**, 
 use the defaults for the other values.
 
-    If you are curious what the ARM definition would look like you can take a look at 
-    it by pressing the Automation options at the bottom of the screen.
+![](images/lab4/new-ai.png)
+
+
+If you are curious what the ARM definition would look like you can take a look at 
+it by pressing the Automation options at the bottom of the screen.
+
+![](images/lab4/ai-arm.png)
 
 3. Press Create to create the resource.
 4. Wait for the resource to be created, then refresh the resource group and select
-the newly created AI resource. Note the **Instrumentation Key**, you are going to use it
+the newly created AI resource. Click **properties** and note the **Instrumentation Key**, you are going to use it
 in a little while.
+
+![](images/lab4/ai-key.png)
 
 ## Using Application Insight in your application
 
@@ -61,11 +71,14 @@ a strategy to parameterize the environment specific details and have it applied
 during the deployment we can do the same for the AI key.
 
 1. Go to the Release hub in VSTS and edit the release definition.
-2. Select the Test environment and and Configure variables for the environment. 
+2. Select the Test environment and **Configure variables** for the environment. 
 Add a variable **instrumentationKey** with the value of the instrumentation key for
 the AI resource created earlier in the exercise.
-3. Save the release definition and make a new release to the Test environment.
-4. Wait for the deployment to complete, then open the QuizBox website and take
+
+![](images/lab4/rm-ai-key.png)
+
+3. Save the release definition and create a new release and deploy it to the Test environment.
+4. Wait for the deployment to complete, then open the QuizBox website, **https://quizboxtest$(teamId).azurewebsites.net**, and take
 a quiz or two.
 5. Open the Azure portal, select the **QuizBoxTest\<userid\>** resource group and open the AI
 resource. Look at the telemetry data received from the application.
@@ -88,11 +101,16 @@ the AI resource.
 **NOTE**: Currently there is no api to create the application insights application id so
 for now we have to create it manually.
 
-1. Go to the Azure portal, select the QuizBox resource group and open the
-application insights resource.
-2. Find the API access configuration and create a new API key. Name the key QuizBox-Test
+1. Go to the Azure portal, select the QuizBox resource group and open the application insights resource.
+2. Find the API access configuration and create a new API key. Name the key **QuizBox-Test**
 and allow it to write annotations.
+
+![](images/lab4/ai-create-api.png)
+
 3. Copy the generated key and paste it in a temporary notepad page.
+
+![](images/lab4/ai-api-key.png)
+
 4. Also copy the AI application ID.
 
 Next we can add the Add release annotation to Application Insights resource 
@@ -102,6 +120,9 @@ to our release definition.
 2. Select the Test environment and add the task **Release Annotation** from the
 Deployment category.
 3. Configure the step with the **Application Id** and **API key** generated earlier.
+
+![](images/lab4/rm-ai.png)
+
 4. Save the release definition and create a new release to the Test environment.
 5. Wait for the deployment to the Test environment has completed. Again run a
 couple of quiz to get some telemetry data from the application. 
@@ -120,6 +141,9 @@ Analytics service.
 1. Go to the Azure portal, select the QuizBox resource group and open the
 Application Insights resource.
 2. Press the **Analytics** button from the Overview page.
+
+![](images/lab4/ai-analytics.png)
+
 3. Explore the data from the **QuizBoxTest** environment using the examples in the portal.
 
 If your application did not generate enough data to analyze there is also a
