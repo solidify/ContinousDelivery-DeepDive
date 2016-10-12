@@ -4,12 +4,13 @@ In this lab you will setup your environment to prepare for the rest of the excer
 You will:
 * Create a new Team Project
 * Import the QuizBox source code repository from GitHub
+* Clone the project in Visual Studio
 * Setup a branching policy that requires pull requests to be used
 * Create an Azure Service Endpoint that will allow you to easily create and update resources in Azure from your build and release definitions later on.
 
 Expected time for this exercise: 15 minutes.
 
-## Preparations
+## Creating a team project
 
 1. Open a web browser and browse to https://deep-dive.visualstudio.com/
 
@@ -24,6 +25,9 @@ Expected time for this exercise: 15 minutes.
     ![](./images/lab0/setup1.1.png)
  
 5. Click create and wait for the project to be created
+
+
+## Importing the sample project
 
 4. After the project has been created, go to the *Code* hub group
 
@@ -40,7 +44,33 @@ https://github.com/solidifysv/QBox.git
 
 7. Click *Import* to import the QBox repository into a new Git repo in your team project
 
-8. We will also setup a *branch policy* in order to protect our master branch. 
+## Cloning the project in Visual Studio
+
+1. Start Visual Studio and open the Team Explorer window (*View -> Team Explorer*)
+
+2. Press the *Manage Connections* button, and the select *Manage Connections -> Connect to Team Project*
+
+    ![](./images/lab0/setup9.png)
+
+3. Click on  *Servers...* and then *Add* to add a connection to the deep-dive project
+
+    ![](./images/lab0/setup10.png)
+    
+4. Log in using your supplied credentials
+
+5. Once connected, select your team project from the list of team projects
+
+6. Clone the project by browsing to the QBox repository that is located beneath your team project in the Connect page:
+
+    ![](./images/lab0/setup12.png)
+    
+7. Accept the default local path (which should be *%HOMEPATH%\source\repos\QBox*) and select *Clone*
+
+    ![](./images/lab0/setup13.png)
+    
+## Creating a Branch Policy
+
+1. Go back to the Visual Studio Team Services team project page
 
 9. Click on the *Team Settings* wheel at the top right
 
