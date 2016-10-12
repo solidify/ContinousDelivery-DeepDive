@@ -72,17 +72,17 @@ Configuration variables contain the settings that either differ between the diff
 
 | Variable        | Value           | Secret |
 | ------------- |-------------|-------------|
-| **apiUrl:**      | http://quizboxtestapi$(teamId).azurewebsites.net/api ||
-| **databaseLogin:**      | quizboxadmin ||
-| **databasePassword:**      | P2ssw0rd | Yes |
-| **resourceGroupName:**      | quizboxtest$(teamId) ||
-| **resourceGroupLocation:**      | North Europe ||
-| **hostingPlanName:**      | quizboxtest$(teamId) ||
-| **databaseName:**      | quizbox ||
-| **databaseServerName:**      | quizboxtest$(teamId) ||
-| **databaseServer:**      | $(databaseServerName).database.windows.net ||
-| **webSiteName:**      | quizboxtest$(teamId) ||
-| **backendWebSiteName:**      | quizboxtestapi$(teamId) ||
+| **apiUrl**      | http://quizboxtestapi$(teamId).azurewebsites.net/api ||
+| **databaseLogin**      | quizboxadmin ||
+| **databasePassword**      | P2ssw0rd | Yes |
+| **resourceGroupName**      | quizboxtest$(teamId) ||
+| **resourceGroupLocation**      | North Europe ||
+| **hostingPlanName**      | quizboxtest$(teamId) ||
+| **databaseName**      | quizbox ||
+| **databaseServerName**      | quizboxtest$(teamId) ||
+| **databaseServer**      | $(databaseServerName).database.windows.net ||
+| **webSiteName**      | quizboxtest$(teamId) ||
+| **backendWebSiteName**      | quizboxtestapi$(teamId) ||
 
 
 ## Add deployment tasks 
@@ -98,8 +98,8 @@ Now it's time to specify how the deployment steps for QuizBox. We will be using 
 
 | Variable        | Value           |
 | ------------- |-------------|
-| **Source Path:**      | $(Agent.ReleaseDirectory)|
-| **Target File Pattern:**      | \*\*\\\*.SetParameters.xml|
+| **Source Path**      | $(Agent.ReleaseDirectory)|
+| **Target File Pattern**      | \*\*\\\*.SetParameters.xml|
 
 5.  Add an *Azure Resource Group Deployment* task (in the Deploy category)
 
@@ -107,14 +107,14 @@ Now it's time to specify how the deployment steps for QuizBox. We will be using 
 
 | Variable        | Value           |
 | ------------- |-------------|
-| **Azure Connection Type:**      | Azure Resource Manager|
-| **Azure RM Subscription:**      | Azure Service Endpoint |
-| **Action:**      | Create or Update Resource Group|
-| **Resource Group:**      | $(resourceGroupName) |
-| **Location:**      | $(resourceGroupLocation)|
-| **Template:**      | $(System.DefaultWorkingDirectory)/QBox.Release/ARMTemplate/WebSiteSQLDatabase.json|
-| **Template Parameters:**      | $(System.DefaultWorkingDirectory)/QBox.Release/ARMTemplate/WebSiteSQLDatabase.parameters.json|
-| **Override Template Parameters:**      | -administratorLoginPassword (ConvertTo-SecureString -String '$(databasePassword)' -AsPlainText -Force) -administratorLogin $(databaseLogin) -hostingPlanName $(hostingPlanName) -databaseName $(databaseName) -webSiteName $(webSiteName) -databaseServer $(databaseServerName) -backendWebSiteName $(backendWebSiteName)
+| **Azure Connection Type**      | Azure Resource Manager|
+| **Azure RM Subscription**      | Azure Service Endpoint |
+| **Action**      | Create or Update Resource Group|
+| **Resource Group**      | $(resourceGroupName) |
+| **Location**      | $(resourceGroupLocation)|
+| **Template**      | $(System.DefaultWorkingDirectory)/QBox.Release/ARMTemplate/WebSiteSQLDatabase.json|
+| **Template Parameters**      | $(System.DefaultWorkingDirectory)/QBox.Release/ARMTemplate/WebSiteSQLDatabase.parameters.json|
+| **Override Template Parameters**      | -administratorLoginPassword (ConvertTo-SecureString -String '$(databasePassword)' -AsPlainText -Force) -administratorLogin $(databaseLogin) -hostingPlanName $(hostingPlanName) -databaseName $(databaseName) -webSiteName $(webSiteName) -databaseServer $(databaseServerName) -backendWebSiteName $(backendWebSiteName)
 |
 
 7. Add an *Azure SQL Database Deployment* task (in the Deploy category)
@@ -123,15 +123,15 @@ Now it's time to specify how the deployment steps for QuizBox. We will be using 
 
 | Variable        | Value           |
 | ------------- |-------------|
-| **Azure Connection Type:**      | Azure Resource Manager|
-| **Azure RM Subscription:**      | Azure Service Endpoint|
-| **Azure SQL Server Name:**      | $(databaseServer)|
-| **Database Name:**      | $(databaseName)|
-| **Server Admin Login:**      | $(databaseLogin)|
-| **Password:**      | $(databasePassword)|
-| **Type:**      | SQL DACPAC File|
-| **DACPAC File:**      | $(System.DefaultWorkingDirectory)/QBox.Release/database/QuizBoxDB.dacpac|
-| **Specify Firwall Rules Using:**      | AutoDetect |
+| **Azure Connection Type**      | Azure Resource Manager|
+| **Azure RM Subscription**      | Azure Service Endpoint|
+| **Azure SQL Server Name**      | $(databaseServer)|
+| **Database Name**      | $(databaseName)|
+| **Server Admin Login**      | $(databaseLogin)|
+| **Password**      | $(databasePassword)|
+| **Type**      | SQL DACPAC File|
+| **DACPAC File**      | $(System.DefaultWorkingDirectory)/QBox.Release/database/QuizBoxDB.dacpac|
+| **Specify Firwall Rules Using**      | AutoDetect |
 
 9. Add an *AzureRM App Service Deployment* task (in the Deploy category
 
@@ -139,11 +139,11 @@ Now it's time to specify how the deployment steps for QuizBox. We will be using 
 
 | Variable        | Value           |
 | ------------- |-------------|
-| **Azure RM Subscription:**      | Azure Service Endpoint|
-| **App Service Name:**      | $(webSiteName) |
-| **Package or Folder:**      | $(System.DefaultWorkingDirectory)/QBox.Release/frontend/QBox.Web.zip |
-| **Publish using Web Deploy:**      | Checked |
-| **SetParameters File:**      | $(System.DefaultWorkingDirectory)/QBox.Release/frontend/QBox.Web.SetParameters.xml |
+| **Azure RM Subscription**      | Azure Service Endpoint|
+| **App Service Name**      | $(webSiteName) |
+| **Package or Folder**      | $(System.DefaultWorkingDirectory)/QBox.Release/frontend/QBox.Web.zip |
+| **Publish using Web Deploy**      | Checked |
+| **SetParameters File**      | $(System.DefaultWorkingDirectory)/QBox.Release/frontend/QBox.Web.SetParameters.xml |
 
 11. Add another *AzureRM App Service Deployment* task (in the Deploy category
 
@@ -151,11 +151,11 @@ Now it's time to specify how the deployment steps for QuizBox. We will be using 
 
 | Variable        | Value           |
 | ------------- |-------------|
-| **Azure RM Subscription:**      | Azure Service Endpoint|
-| **App Service Name:**      | $(backendWebSiteName) |
-| **Package or Folder:**      | $(System.DefaultWorkingDirectory)/QBox.Release/backend/QBox.Api.zip |
-| **Publish using Web Deploy:**      | Checked |
-| **SetParameters File:**      | $(System.DefaultWorkingDirectory)/QBox.Release/backend/QBox.Api.SetParameters.xml |
+| **Azure RM Subscription**      | Azure Service Endpoint|
+| **App Service Name**      | $(backendWebSiteName) |
+| **Package or Folder**      | $(System.DefaultWorkingDirectory)/QBox.Release/backend/QBox.Api.zip |
+| **Publish using Web Deploy**      | Checked |
+| **SetParameters File**      | $(System.DefaultWorkingDirectory)/QBox.Release/backend/QBox.Api.SetParameters.xml |
 
 13. Your release definition should now look like this:
 
@@ -186,17 +186,17 @@ This will copy all the settings, and then we can just change the production valu
 
 | Variable        | Value           | Secured |
 | ------------- |-------------|-------------|
-| **apiUrl:**      | http://quizboxprodapi$(teamId).azurewebsites.net/api ||
-| **databaseLogin:**      | quizboxadmin ||
-| **databasePassword:**      | P2ssw0rd | Yes |
-| **resourceGroupName:**      | quizboxprod$(teamId) ||
-| **resourceGroupLocation:**      | North Europe ||
-| **hostingPlanName:**      | quizboxprod$(teamId) ||
-| **databaseName:**      | quizbox ||
-| **databaseServerName:**      | quizboxprod$(teamId) ||
-| **databaseServer:**      | $(databaseServerName).database.windows.net ||
-| **webSiteName:**      | quizboxprod$(teamId) ||
-| **backendWebSiteName:**      | quizboxprodapi$(teamId) ||
+| **apiUrl**      | http://quizboxprodapi$(teamId).azurewebsites.net/api ||
+| **databaseLogin**      | quizboxadmin ||
+| **databasePassword**      | P2ssw0rd | Yes |
+| **resourceGroupName**      | quizboxprod$(teamId) ||
+| **resourceGroupLocation**      | North Europe ||
+| **hostingPlanName**      | quizboxprod$(teamId) ||
+| **databaseName**      | quizbox ||
+| **databaseServerName**      | quizboxprod$(teamId) ||
+| **databaseServer**      | $(databaseServerName).database.windows.net ||
+| **webSiteName**      | quizboxprod$(teamId) ||
+| **backendWebSiteName**      | quizboxprodapi$(teamId) ||
 
 8. Save the release definition
 9. Note that you can get a good overview of the different environment variables by going to the *Variables* tab and then select *Environment variables* in the dropdown in the upper right corner:
