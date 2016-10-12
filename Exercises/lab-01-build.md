@@ -76,6 +76,8 @@ use the **PAT** from the previous step.
 7. Now the agent should be up and running. Switch back to the VSTS team settings and look at
 the status in the agent queue.
 
+![Agent created](images/lab1/agent-created.png)
+
 ## Create a build definition
 With the build infrastructure in place it's time to create a build process. In this scenario
 you will create both a continuous integration build and then also a variant to be used for the
@@ -83,7 +85,9 @@ release builds.
 
 ### CI build
 1. Go to the **Build** hub 
+
 2. Click on the **"+ New"** button.
+
 3. There are several templates to choose from, select the **Visual Studio** template.
 
 ![](./images/lab1/create-build-definition.png)
@@ -96,13 +100,22 @@ default branch, enable CI and use the build queue created earier in this lab (Us
 
 5. The template build definition contains several steps, for the CI build we only need the
 NuGet restore, Build solution and Test Assemblies tasks. Remove the rest.
+
 6. Configure the NuGet restore task to use Source/QBox.sln instead of all solution files (**\*.sln).
+
 7. Configure the Build solution task to build Source/QBox.sln.
+
 8. Configure the Unit test task to only test \*unittest\* assemblies and enable code coverage.
+
+![](./images/lab1/test-assemblies.png)
+
 9. Select the Variables tab and add a variable named ApplicationVersion with the value 2.0.
+
 10. Select the General tab and change the build format name to 
 $(BuildDefinitionName)_$(SourceBranchName)_$(ApplicationVersion)$(rev:.r).0
+
 11. Save the build definition as QBox.CI. 
+
 12. Queue a new build and make sure it passes. Note how the build number format is generated.
 
 ### Add versioning to the build definition
