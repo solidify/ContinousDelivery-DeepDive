@@ -149,7 +149,7 @@ msbuild arguments: /p:DeployOnBuild=true /p:PublishProfile=CreatePackage
 3. Add Copy Publish Artifact steps to the process to publish the different components
 from the build.
 
-| Artifact Name | Copy Root | Contents | Artifact source |
+| Artifact Name | Copy Root | Contents | Artifact Type |
 |---|---|---|---|
 | Frontend | $(build.sourcesDirectory) | source\QBox.Web\deploy\\\*.* | server |
 | Backend | $(build.sourcesDirectory) | source\QBox.Api\deploy\\\*.* | server |
