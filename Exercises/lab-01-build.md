@@ -9,14 +9,69 @@ In this exercise you will learn to:
 2. Setup a build process
 3. Extend the build process with custom activities
 
-## Setup / prerequisites
-In order to do this lab you need have completed the setup exercise where you setup your 
-development environment. 
 
-Login to [https://deep-dive.visualstudio.com](https://deep-dive.visualstudio.com) with your 
-assigned user (UserNN@DevOpsTraining.onmicrosoft.com).
+First, we will create a team project for your team and import the source code repository
 
-## Configure the build environment
+## Creating a team project
+
+1. Open a web browser and browse to https://deep-dive.visualstudio.com/
+
+2. Login using your assigned user login and password (*userxx@devopstraining.onmicrosoft.com* / *P2ssw0rd!*)
+ 
+3. Click on the *New* link to create a new team project
+
+    ![](./images/lab0/setup1.png)
+
+4. For the name of the team project, enter *TeamProject* + your assigned team id, for example *TeamProject03*. Select *Scrum* as the Process template and make sure that *Git* is used for Version control.
+
+    ![](./images/lab0/setup1.1.png)
+ 
+5. Click create and wait for the project to be created
+
+
+## Importing the sample project
+
+4. After the project has been created, go to the *Code* hub group
+
+5. From the repository selector drop-down, click *Import repository*
+
+    ![](./images/lab0/setup2.png)
+
+6. In the *Clone URL* field, enter the following URL:
+
+```
+https://github.com/solidifysv/QBox.git
+
+``` 
+
+7. Click *Import* to import the QBox repository into a new Git repo in your team project
+
+## Cloning the project in Visual Studio
+
+1. Start Visual Studio and open the Team Explorer window (*View -> Team Explorer*)
+
+2. Press the *Manage Connections* button, and the select *Manage Connections -> Connect to Team Project*
+
+    ![](./images/lab0/setup9.png)
+
+3. Click on  *Servers...* and then *Add* to add a connection to the deep-dive project
+
+    ![](./images/lab0/setup10.png)
+    
+4. Log in using your supplied credentials
+
+5. Once connected, select your team project from the list of team projects
+
+6. Clone the project by browsing to the QBox repository that is located beneath your team project in the Connect page:
+
+    ![](./images/lab0/setup12.png)
+    
+7. Accept the default local path (which should be *%HOMEPATH%\source\repos\QBox*) and select *Clone*
+
+    ![](./images/lab0/setup13.png)
+
+
+# Configure the build environment
 For this workshop we will use local build servers. In this step you will setup a local 
 agent on your own machine to simulate an internal build server running against VSTS.
 

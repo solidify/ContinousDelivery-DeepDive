@@ -14,15 +14,25 @@ Before starting on this excercise, you need to complete the previous excercise i
 This build definition produces versioned artefacts that we will use in this excercise.
 
 
-## Azure Service Endpoint
+## Creating an Azure Service Endpoint
 All build and deployment tasks that communicate with an Azure subscription does so using an Service Endpoint. 
 A service endpoint wraps all the information necessary in order to communicate with an external system (such as Azure, Jenkins or GitHub) so that 
 this does not have to be done for each release definition. Also, it makes it possible to keep sensitive information such as passwords stored in one place.
 
-In this lab, you will use the service endpoint that you created in the first lab, called *Azure Service Endpoint*
+1. Go back to the Team Settings page and select the *Services* tab
+
+2. Select *New Service Endpoint* and select 
+
+    ![](./images/lab0/setup6.png)
+    
+3. Enter *Azure Service Endpoint* as the connection name, and select the subscription that should be available in the dropdown below
+
+    ![](./images/lab0/setup7.png)
+    
+4. Press *OK* and wait for the endpoint to be created.
  
 
-## Creating a Release Definition
+# Creating a Release Definition
 In Visual Studio Release Management, a deployment pipeline is implemented by creating a release definition. 
 The definition contains information about the different environments, how the application should be deployed to each environment and which users should (if necessary) verify the deployments
 
@@ -204,7 +214,7 @@ This will copy all the settings, and then we can just change the production valu
     ![](./images/lab2/createrelease8.png)
 
 
-## Trigger a release
+# Trigger a release
 Let's try out our release definition.We do this by committig a change to the QuizBox repo.
 
 1. Commit a change to the QuizBox repository. Associate the commit to a work item.
@@ -228,7 +238,7 @@ Let's try out our release definition.We do this by committig a change to the Qui
 
 9. Verify that the release is deployed to the production environment as expected
 
-## Further ideas
+# Further ideas
 * **Diagnostic information**  
   As with builds, we can get more diagnostic information from releases by turning on debug. This is done by adding a new release variable called *system.debug* with the value *true*
 
