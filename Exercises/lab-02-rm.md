@@ -215,11 +215,13 @@ This will copy all the settings, and then we can just change the production valu
 
 
 # Trigger a release
-Let's try out our release definition.We do this by committig a change to the QuizBox repo.
+Let's try out our release definition. We do this by releasing the release build we created earlier in the build lab.
 
-1. Commit a change to the QuizBox repository. Associate the commit to a work item.
+1. Go to the release definition and click on "Release". 
 
-2. Wait for the Quizbox.Release build to complete. This should automatically trigger a release.
+2. Select the last good build and create the release.
+
+![](images/lab2/create-new-release.png)
 
 3. Open the running release and select the *Logs* tab on the running release to see the progress and the log output
 
