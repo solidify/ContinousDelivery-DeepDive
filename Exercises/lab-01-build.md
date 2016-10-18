@@ -56,13 +56,13 @@ https://github.com/solidifysv/QBox.git
 
 3. Click on  *Servers...* and then *Add* to add a connection to the deep-dive project
 
-    ![](./images/lab0/setup10.png)
+    ![](./images/lab1/connect-teamproject.png)
     
 4. Log in using your supplied credentials
 
 5. Once connected, select your team project from the list of team projects
 
-6. Clone the project by browsing to the QBox repository that is located beneath your team project in the Connect page:
+6. Clone the project by browsing to the **QBox repository** that is located beneath your team project in the Connect page:
 
     ![](./images/lab0/setup12.png)
     
@@ -214,10 +214,20 @@ from the build.
 | UITests | Source/QBox.Web.UITests | \*\*\bin\release\\\*.* | Server |
 | ARMTemplate | $(build.sourcesDirectory) | source\QuizBox.AzureResourceGroup\Templates\\\*.* | Server |
 
-4. Select the Repository tab and set Clean to True.
+4. Select the Repository tab and set **Clean** to True.
 5. Select the Triggers tab and remove the CI trigger.
-6. Save the build definition as QBox.Release.
-7. Queue a build and make sure it passes.
+6. Save the build definition as **QBox.Release**.
+7. Create a new PBI work item "Team NN new feature".
+8. Open the QBox solution and make a small code change.
+9. Commit the change and associate it with the work item.
+
+![](images/lab1/commit-new-feature.png)
+
+10. Queue a build (the QBox.Release build definition) for the  and make sure it passes.
+11. Look at the build result and review the build summary. Note the associated work item and the
+check-in comment.
+
+![](images/lab1/build-summary.png)
 
 ## Further ideas
 By now you should have completed the core steps of setting up a build pipeline. Well done! 
