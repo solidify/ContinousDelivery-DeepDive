@@ -19,7 +19,7 @@ You need to have done lab 03 - Release Management in order to complete this lab.
 In this exercise you will add an Application Insights resource to the resource group
 created earlier. 
 
-1. Go to the Azure portal and select the **QuizBoxTest\<userid\>** resource group.
+1. Go to the Azure portal [https://portal.azure.com](https://portal.azure.com) and select the **QuizBoxTest\<userid\>** resource group.
 
 ![](images/lab4/select-rg.png)
 

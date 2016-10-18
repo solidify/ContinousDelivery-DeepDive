@@ -143,7 +143,7 @@ Now it's time to specify how the deployment steps for QuizBox. We will be using 
 | **DACPAC File**      | $(System.DefaultWorkingDirectory)/QBox.Release/database/QuizBoxDB.dacpac|
 | **Specify Firwall Rules Using**      | AutoDetect |
 
-9. Add an *AzureRM App Service Deployment* task (in the Deploy category
+9. Add an *AzureRM App Service Deployment* task (in the Deploy category)
 
 10. Set the following variables
 
@@ -177,10 +177,10 @@ Now it's time to specify how the deployment steps for QuizBox. We will be using 
 ## Create Production environment
 Now that the Test environment is configured, we need to add the production environment. 
 The deployment steps should be identical to the Test environment, we only need to specify different configuration values.
-Therefor, we can quickly create the production environment by cloning the Test environment.
+Therefore, we can quickly create the production environment by cloning the Test environment.
 This will copy all the settings, and then we can just change the production values.
 
-1. Click on the context menu for the *Test* environment and select *Clone environment".
+1. Click on the context menu for the *Test* environment and select *Clone environment*.
 
 2. In the Pre-deployment approval select *Specific users* and browse to your own account
 
@@ -234,7 +234,7 @@ Let's try out our release definition. We do this by releasing the release build 
 7. Verify that the application has been deployed to the Test environment and is working as expected.  
    You can do this by browsing to *https://quizboxtest$(teamId).azurewebsites.net/*
    
-8. Approve the release by clickin the Approve link at the top of the summary page
+8. Approve the release by clicking the *Approve* link at the top of the summary page
 
     ![](./images/lab2/createrelease7.png)
 
